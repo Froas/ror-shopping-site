@@ -5,7 +5,7 @@
       <li>
         <%= link_to user.name, user %>
       </li>  
-    <% if user.admin == true %> | <%= link_to "delete it", user_delete_path_url(id: user.id), method: :get %>
+    <% if current_user.admin?%> | <%= link_to "delete it", user_delete_path_url(id: user.id), method: :get %>
     <% end %>
 
     <% end %>
