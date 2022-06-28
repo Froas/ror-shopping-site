@@ -1,0 +1,13 @@
+
+<%= will_paginate %>
+  <ul>
+    <%= @users.each do |user| %>
+      <li>
+        <%= link_to user.name, user %>
+      </li>  
+    <% if user.admin == true %> | <%= link_to "delete it", user_delete_path_url(id: user.id), method: :get %>
+    <% end %>
+
+    <% end %>
+  </ul>
+<%= will_paginate %>
