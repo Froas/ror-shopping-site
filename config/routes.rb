@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
   root "home#home"
+  get "/users/:id", to: "users#show"
+  devise_for :users, :path_prefix => 'd'
+  resources :users
 end
