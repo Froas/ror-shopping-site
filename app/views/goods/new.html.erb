@@ -1,0 +1,21 @@
+<%= form_for(:good, url: create_good_path) do |g| %>
+
+  <div class="mb-3">
+    <%= g.label :title %>
+    <%= g.text_field :title, placeholder: "Title"  %>
+  </div>
+
+  <div class="mb-3">
+    <%= g.label :description %>
+    <%= g.text_area :description, placeholder: "Description"  %>
+  </div>
+
+
+  <div class="mb-3">
+    <%= g.label :price %>
+    <%= g.text_field :price, placeholder: "Price"  %>
+  </div>
+
+  <%= g.submit "Save changes", class: "btn btn-primary", class: "btn btn-primary" %>
+
+<% end %>

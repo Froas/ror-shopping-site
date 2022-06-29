@@ -1,0 +1,5 @@
+<%= will_paginate %>
+  <%= @goods.each do |g|  %>
+    <%= link_to g.title, g %>
+  <% end %>
+<%= will_paginate %>
