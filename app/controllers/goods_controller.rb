@@ -9,10 +9,6 @@ class GoodsController < ApplicationController
     end
   end
 
-  def goods_params
-    params.require(:good).permit(:title, :description, :price)
-  end 
-
   def new 
     @good = Good.new 
   end
@@ -34,5 +30,9 @@ class GoodsController < ApplicationController
   def index 
     @goods = Good.paginate(page: params[:page], per_page: 10)
   end
+
+  def goods_params
+    params.require(:good).permit(:title, :description, :price, :image)
+  end 
 
 end

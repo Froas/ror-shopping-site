@@ -15,14 +15,18 @@
               <%= link_to "Admin Panel", admin_path %>
             </div>
           <% else  %>
-            <div class="items">
+            <div class="ml-auto p-2">
               <%= link_to "Profile", current_user %>
+            </div>
+            <div class="p-2">
               <%= link_to "Sign out", destroy_user_session_path %>
             </div>
           <% end %>
          <% else %>
-          <div class="items">
+          <div class="ml-auto p-2">
             <%= link_to "Sing in", new_user_session_path %>
+          </div>
+          <div class="p-2">
             <%= link_to "Sign up", new_user_registration_path %>
           </div>
         <% end %>

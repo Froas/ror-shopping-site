@@ -5,6 +5,7 @@ ruby "2.7.6"
 gem "rails", "~> 7.0.3"
 gem "sprockets-rails"
 gem 'mysql2'
+gem "image_processing", "~> 1.2"
 gem 'devise'
 gem "puma", "~> 5.0"
 gem "importmap-rails"
