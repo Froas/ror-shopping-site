@@ -15,9 +15,17 @@ class GoodsController < ApplicationController
 
 
   def edit
+    @good = Good.find(params[:id])
   end
 
   def update
+    @good = Good.find(params[:id])
+    if Good.update(goods_params)
+      flash[:success] = "Updated"
+      redirect_to @good
+    else 
+      render "edit"
+    end
   end 
 
   def destroy

@@ -1,1 +1,10 @@
 <%= @good.title %>
+<% if @good.image.attached? %>
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag @good.image %>
+  </p>
+<% end %>
+<% if current_user.admin? %>
+  <%= link_to "Edit", edit_good_path(@good) %>
+<% end %>
