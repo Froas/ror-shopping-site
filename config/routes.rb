@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post "create_good", to: "goods#create"
   get "/goods", to: "goods#index"
   get "/admin", to: "users#admin"
+  get "delete_good/:id", to: "goods#destroy", as: :delete_good_path
   get "set_admin", to: "users#admin_set", as: :set_admin_path
   devise_for :users, :path_prefix => 'd'
   resources :users, only: [:edit, :update, :show]

@@ -7,4 +7,5 @@
 <% end %>
 <% if current_user.admin? %>
   <%= link_to "Edit", edit_good_path(@good) %>
+  <%= link_to "delete", delete_good_path_url(@good) %>
 <% end %>

@@ -29,6 +29,10 @@ class GoodsController < ApplicationController
   end 
 
   def destroy
+    @good = Good.find(params[:id])
+    @good.destroy
+    flash[:success] = "Good deleted"
+    redirect_to goods_path
   end 
   
   def show
