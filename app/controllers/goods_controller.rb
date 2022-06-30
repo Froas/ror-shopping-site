@@ -20,7 +20,7 @@ class GoodsController < ApplicationController
 
   def update
     @good = Good.find(params[:id])
-    if Good.update(goods_params)
+    if @good.update(goods_params)
       flash[:success] = "Updated"
       redirect_to @good
     else 
