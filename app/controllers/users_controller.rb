@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :index, :destroy, :show]
-  before_action :admin_user, only: [:destory]
+  before_action :admin_user, only: [:destory, :index]
 
   def admin_user
     redirect_to(root_path) unless current_user.admin?
@@ -26,6 +26,19 @@ class UsersController < ApplicationController
       redirect_to users_path
     else 
       redirect_to root
+    end
+  end
+
+  def admin_set
+    @user = User.find(params[:id])
+    if @user.admin?
+      @user.update_attribute(:admin, false)
+      flash[:success] = "#{@user.admin}"
+      redirect_to users_path
+    else
+      @user.update_attribute(:admin, true)
+      flash[:success] = "#{@user.admin}"
+      redirect_to users_path
     end
   end
 end
