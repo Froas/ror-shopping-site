@@ -15,6 +15,7 @@ gem "jbuilder"
 gem 'bootstrap-sass'
 gem 'bootstrap-sass'
 gem 'will_paginate'
+gem 'faker'
 gem 'bootstrap-will_paginate'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false

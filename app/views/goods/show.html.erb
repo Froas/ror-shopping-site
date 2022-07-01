@@ -1,11 +1,20 @@
-<%= @good.title %>
+<div>
+  <h1><%= @good.title %><h1>
+
+</div>
+  <p><%= @good.description %><p>
 <% if @good.image.attached? %>
   <p>
     <strong>Image:</strong>
     <%= image_tag @good.image %>
   </p>
 <% end %>
-<% if current_user.admin? %>
-  <%= link_to "Edit", edit_good_path(@good) %>
-  <%= link_to "delete", delete_good_path_url(@good) %>
-<% end %>
+
+<div>
+  <%= link_to "add to card", root_path>
+  <%= link_to "back", goods_path %>
+  <% if current_user.admin? %>
+    <%= link_to "Edit", edit_good_path(@good) %>
+    <%= link_to "delete", delete_good_path_url(@good) %>
+  <% end %>
+</div>

@@ -1,7 +1,7 @@
 
-<%= will_paginate %>
+<%= will_paginate @users  %>
   <ul>
-    <%= @users.each do |user| %>
+    <% @users.each do |user| %>
       <li>
         <%= link_to user.name, user %>
       </li>  
@@ -11,5 +11,6 @@
         <%= link_to "promote admin", set_admin_path_url(id: user.id), method: :get %>
       <% end %>
     <% end %>
+    <br>
   </ul>
 <%= will_paginate %>

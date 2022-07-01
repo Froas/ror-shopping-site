@@ -1,5 +1,5 @@
-<%= will_paginate %>
-  <%= @goods.each do |g|  %>
+<%= will_paginate @goods %>
+  <% @goods.each do |g|  %>
     <%= link_to g.title, g %>
     <% if g.image.attached? %>
       <p>
@@ -8,4 +8,3 @@
       </p>
     <% end %>
   <% end %>
-<%= will_paginate %>
