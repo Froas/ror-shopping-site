@@ -1,0 +1,2 @@
+module Staffs::DashboardHelper
+end

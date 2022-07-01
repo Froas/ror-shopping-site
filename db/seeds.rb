@@ -6,6 +6,13 @@ User.create!(
   admin:     true,
 )
 
+Staff.create!(
+  name:  "Admin",
+  email: "admin@user.com",
+  password:              "admin1",
+  password_confirmation: "admin1",
+  super_admin:     true,
+)
 
 99.times do |n|
   name = Faker::Name.name
