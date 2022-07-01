@@ -11,10 +11,12 @@
 <% end %>
 
 <div>
-  <%= link_to "add to card", root_path>
+
   <%= link_to "back", goods_path %>
-  <% if current_user.admin? %>
+  <% if staff_signed_in? %>
     <%= link_to "Edit", edit_good_path(@good) %>
     <%= link_to "delete", delete_good_path_url(@good) %>
+  <% else %>
+    <%= link_to "add to card", root_path %>
   <% end %>
 </div>
