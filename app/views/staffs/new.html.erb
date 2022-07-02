@@ -1,0 +1,19 @@
+
+<h1>Add a Staff to the team</h1>
+<%= form_for(:staff, url: create_staff_path) do |f| %>
+
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :email, "Email" %>
+    <%= f.email_field :email, class: 'form-control' %>
+
+    <%= f.label :password, "Password" %>
+    <%= f.password_field :password, class: 'form-control' %>
+
+    <%= f.label :password_confirmation, "Confirmation" %> 
+    <%= f.password_field :password_confirmation, class: 'form-control' %> 
+
+  <%= f.submit "Create", class: "btn btn-primary", class: "btn btn-primary" %>
+
+<% end %>

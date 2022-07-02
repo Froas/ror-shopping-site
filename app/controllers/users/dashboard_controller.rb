@@ -1,7 +1,6 @@
 class Users::DashboardController < ApplicationController
   def index
   end
-  class UsersController < ApplicationController
     before_action :logged_in_user, only: [:edit, :update, :index, :destroy, :show]
     before_action :admin_user, only: [:destory, :index, :admin_set]
   
@@ -44,6 +43,5 @@ class Users::DashboardController < ApplicationController
         redirect_to users_path
       end
     end
-  end
   
 end

@@ -4,10 +4,14 @@ Rails.application.routes.draw do
   get "/users", to: "users#index"
   get "/user/delete/:id", to: "users#destroy", as: :user_delete_path
   post "create_good", to: "goods#create"
+  post "create_staff", to: "staffs#create"
   get "/goods", to: "goods#index"
-  get "/admin", to: "users#admin"
   get "delete_good/:id", to: "goods#destroy", as: :delete_good_path
-  get "set_admin", to: "users#admin_set", as: :set_admin_path
+  get "/staffs", to: "staffs#index"
+  get "/admin", to: "staffs#admin"
+  get "/create", to: "staffs#new"
+  get "delete_staff/:id", to: "staffs#destroy", as: :delete_staff_path
+
  
   namespace :users do
     get 'dashboard/index'
@@ -43,6 +47,7 @@ Rails.application.routes.draw do
   end
 
   root "home#home"
-  # resources :users, only: [:edit, :update, :show]
+  resources :users, only: [:edit, :update, :show]
   resources :goods
+  resources :staffs
 end

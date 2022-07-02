@@ -16,12 +16,22 @@ class Staffs::RegistrationsController < Devise::RegistrationsController
   def create
     @staff = Staff.new(staff_params)
       if @staff.save
-        flash[:success] = "Blog created"
+        flash[:success] = "Staff created"
         redirect_to root_url
       else
         render 'new'
       end
     end
+
+  def update
+    @staff = Staff.find(params[:id])
+    if @staff = Staff.update(staff_params)
+      flash[:success] = "Profile has been updated"
+      redirect_to @staff
+    else 
+      render "edit"
+    end
+  end
 
     def staff_params
       params.require(:staff).permit(:name, :email, :password, :password_confirmation)

@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    current_user
-  end
+    stored_location_for(resource) ||
+     if resource.is_a?(User)
+       goods_path
+     elsif resource.is_a?(Staff)
+       admin_path
+     else
+       root_path
+     end
+   end
 end

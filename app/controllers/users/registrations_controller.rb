@@ -7,8 +7,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   @user = User.new(user_params)
     if @user.save
       flash[:success] = "Blog created"
-      redirect_to root_url
-    else
+      redirect_to @user
+    else 
       render 'new'
     end
   end

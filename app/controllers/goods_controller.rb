@@ -1,9 +1,11 @@
 class GoodsController < ApplicationController
+  before_action :authenticate_staff!, except: [:index, :show]
+
 
   def create
     @good = Good.new(goods_params)
     if @good.save
-      redirect_to root_url
+      redirect_to @good
     else
       render 'new'
     end
