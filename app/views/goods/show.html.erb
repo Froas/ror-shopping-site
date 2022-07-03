@@ -1,21 +1,18 @@
-<div>
-  <h1><%= @good.title %><h1>
+  <%= link_to "Back", goods_path, class: "btn btn-primary button"%>
+<div class="item_block">
+  <div>
+    <h1><%= @good.title %><h1>
+  </div>
+    <p><%= @good.description %><p>
+  <% if @good.image.attached? %>
+    <p>
+      <%= image_tag @good.image, class: "img" %>
+    </p>
+  <% end %>
 
-</div>
-  <p><%= @good.description %><p>
-<% if @good.image.attached? %>
-  <p>
-    <strong>Image:</strong>
-    <%= image_tag @good.image %>
-  </p>
-<% end %>
-
-<div>
-
-  <%= link_to "back", goods_path %>
   <% if staff_signed_in? %>
-    <%= link_to "Edit", edit_good_path(@good) %>
-    <%= link_to "delete", delete_good_path_url(@good) %>
+    <%= link_to "Edit", edit_good_path(@good), class: "btn btn-secondary" %>
+    <%= link_to "Delete", delete_good_path_url(@good), class: "btn btn-danger" %>
   <% else %>
     <%= link_to "add to card", root_path %>
   <% end %>

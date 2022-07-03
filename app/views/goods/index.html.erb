@@ -1,5 +1,7 @@
 <%= will_paginate @goods %>
+<div class="conteiner-good">
   <% @goods.each do |g|  %>
+  <div class="item-good">
     <%= link_to g.title, g %>
     <% if g.image.attached? %>
       <p>
@@ -7,4 +9,6 @@
         <%= image_tag g.image %>
       </p>
     <% end %>
+  </div>
   <% end %>
+</div>

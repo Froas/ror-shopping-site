@@ -1,47 +1,4 @@
 class Users::DashboardController < ApplicationController
   def index
   end
-    before_action :logged_in_user, only: [:edit, :update, :index, :destroy, :show]
-    before_action :admin_user, only: [:destory, :index, :admin_set]
-  
-    def admin_user
-      redirect_to(root_path) unless current_user.admin?
-    end 
-  
-    def logged_in_user 
-      unless !current_user.nil?
-        flash[:danger] = "Please Log in"
-        redirect_to new_user_session_url
-      end
-    end
-    def show
-      @user = User.find(params[:id]) 
-    end 
-  
-    def index 
-      @users = User.paginate(page: params[:page], per_page: 10)
-    end
-  
-    def destroy
-      @user = User.find(params[:id])
-      if @user.destroy
-        redirect_to users_path
-      else 
-        redirect_to root
-      end
-    end
-  
-    def admin_set
-      @user = User.find(params[:id])
-      if @user.admin?
-        @user.update_attribute(:admin, false)
-        flash[:success] = "#{@user.admin}"
-        redirect_to users_path
-      else
-        @user.update_attribute(:admin, true)
-        flash[:success] = "#{@user.admin}"
-        redirect_to users_path
-      end
-    end
-  
 end

@@ -1,26 +1,28 @@
 <%= form_for(:good, url: create_good_path) do |g| %>
 
+<div class="col">
+  <h1>Add Item</h1>
   <div class="mb-3">
-    <%= g.label :title %>
-    <%= g.text_field :title, placeholder: "Title"  %>
+    <%= g.label :title, class: "form-label" %>
+    <%= g.text_field :title, placeholder: "Title", class: "form-control", id: "exampleFormControlInput1" %>
   </div>
 
   <div class="mb-3">
-    <%= g.label :description %>
-    <%= g.text_area :description, placeholder: "Description"  %>
+    <%= g.label :description, class: "form-label" %>
+    <%= g.text_area :description, placeholder: "Description", class: "form-control", id: "exampleFormControlTextarea1"  %>
   </div>
 
 
   <div class="mb-3">
-    <%= g.label :price %>
-    <%= g.text_field :price, placeholder: "Price"  %>
+    <%= g.label :price, class: "form-label" %>
+    <%= g.number_field :price, placeholder: "Price", class: "form-control", id: "exampleFormControlInput1"  %>
   </div>
 
    <div class="mb-3">
-    <%= g.label :image %>
-    <%= g.file_field :image %>
+    <%= g.label :image, class: "form-label" %>
+    <%= g.file_field :image, class: "form-control form-control-sm", id: "formFileSm", type: "file" %>
   </div>
 
   <%= g.submit "Save changes", class: "btn btn-primary", class: "btn btn-primary" %>
-
+</div>
 <% end %>

@@ -5,11 +5,6 @@
       <li>
         <%= link_to user.name, user %>
       </li>  
-      <% if user.admin?%>
-        <%= link_to "demote admin", set_admin_path_url(id: user.id), method: :get %>
-      <% else %>
-        <%= link_to "promote admin", set_admin_path_url(id: user.id), method: :get %>
-      <% end %>
     <% end %>
     <br>
   </ul>
