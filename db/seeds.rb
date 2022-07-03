@@ -13,7 +13,6 @@ User.create!(
   email: "admin2@user.com",
   password:              "admin1",
   password_confirmation: "admin1",
-  admin:     true,
 )
 
 99.times do |n|
