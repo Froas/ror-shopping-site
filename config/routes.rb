@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'orders/show'
-  get 'orders/index'
-  get 'orders/new'
+
   get 'carts/show'
 
   get "/user/:id", to: "users#show"
