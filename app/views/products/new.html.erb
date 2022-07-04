@@ -1,7 +1,7 @@
-<%= form_for(:good, url: create_good_path) do |g| %>
+<%= form_for(:product, url: create_product_path) do |g| %>
 
 <div class="col">
-  <h1>Add Item</h1>
+  <h1>Add Product</h1>
   <div class="mb-3">
     <%= g.label :title, class: "form-label" %>
     <%= g.text_field :title, placeholder: "Title", class: "form-control", id: "exampleFormControlInput1" %>

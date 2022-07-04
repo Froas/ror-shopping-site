@@ -1,9 +1,9 @@
 
 Staff.create!(
   name:  "Admin",
-  email: "admin@user.com",
-  password:              "admin1",
-  password_confirmation: "admin1",
+  email: "admin@admin.com",
+  password:              "admin123",
+  password_confirmation: "admin123",
   super_admin:     true,
 )
 
@@ -48,7 +48,7 @@ end
   random = [3, 4, 5].sample
   description = Faker::Food.description
   price = Faker::Number.decimal_part(digits: random)
-  Good.create!(
+  Product.create!(
     title: title,
     description: description,
     price: price
@@ -60,7 +60,7 @@ end
   random = [2, 3, 4, 5].sample
   description = Faker::Lorem.paragraph(sentence_count: random)
   price = Faker::Number.decimal_part(digits: random)
-  Good.create!(
+  Product.create!(
     title: title,
     description: description,
     price: price
@@ -72,7 +72,7 @@ end
   random = [2, 3, 4, 5].sample
   description = Faker::Lorem.paragraph(sentence_count: random)
   price = Faker::Number.decimal_part(digits: random)
-  Good.create!(
+  Product.create!(
     title: title,
     description: description,
     price: price
@@ -84,7 +84,7 @@ end
   random = [2, 3, 4, 5].sample
   description = Faker::Lorem.paragraph(sentence_count: random)
   price = Faker::Number.decimal_part(digits: random)
-  Good.create!(
+  Product.create!(
     title: title,
     description: description,
     price: price
@@ -96,7 +96,7 @@ end
   random = [2, 3, 4, 5].sample
   description = Faker::Lorem.paragraph(sentence_count: random)
   price = Faker::Number.decimal_part(digits: random)
-  Good.create!(
+  Product.create!(
     title: title,
     description: description,
     price: price
@@ -108,7 +108,7 @@ end
   random = [3, 4, 5].sample
   description = Faker::Lorem.paragraph(sentence_count: random)
   price = Faker::Number.decimal_part(digits: random)
-  Good.create!(
+  Product.create!(
     title: title,
     description: description,
     price: price
@@ -120,7 +120,7 @@ end
   random = [3, 4, 5].sample
   description = Faker::Lorem.paragraph(sentence_count: random)
   price = Faker::Number.decimal_part(digits: random)
-  Good.create!(
+  Product.create!(
     title: title,
     description: description,
     price: price

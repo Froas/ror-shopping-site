@@ -1,7 +1,7 @@
 <ul>
-  <li><%= link_to "List of All goods", goods_path %></li>
-  <li><%= link_to "List of all users", staffs_path %></li>
-  <li><%= link_to "Add good", new_good_path %></li>
+  <li><%= link_to "List of All Products", products_path %></li>
+  <li><%= link_to "List of All Users", staffs_path %></li>
+  <li><%= link_to "Add Product", new_product_path %></li>
   <% if current_staff.super_admin? %>
     <li><%= link_to "Add User", create_path %></li>
   <% end %>

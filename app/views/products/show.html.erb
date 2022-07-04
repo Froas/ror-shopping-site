@@ -1,0 +1,19 @@
+  <%= link_to "Back", products_path, class: "btn btn-primary button"%>
+<div class="item_block">
+  <div>
+    <h1><%= @product.title %><h1>
+  </div>
+    <p><%= @product.description %><p>
+  <% if @product.image.attached? %>
+      <%= image_tag @product.image, class: "img" %>
+  <% else %>  
+    <%= image_tag 'default-imag.jpg' %>
+  <% end %>
+
+  <% if staff_signed_in? %>
+    <%= link_to "Edit", edit_product_path(@product), class: "btn btn-secondary" %>
+    <%= link_to "Delete", delete_product_path_url(@product), class: "btn btn-danger" %>
+  <% else %>
+    <%= link_to "add to card", root_path, class: "btn btn-primary" %>
+  <% end %>
+</div>

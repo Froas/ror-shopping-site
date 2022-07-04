@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   get "/user/:id", to: "users#show"
   get "/users", to: "users#index"
   get "/user/delete/:id", to: "users#destroy", as: :user_delete_path
-  post "create_good", to: "goods#create"
+  post "create_product", to: "products#create"
+  get "/products", to: "products#index"
+  get "delete_product/:id", to: "products#destroy", as: :delete_product_path
   post "create_staff", to: "staffs#create"
-  get "/goods", to: "goods#index"
-  get "delete_good/:id", to: "goods#destroy", as: :delete_good_path
   get "/staffs", to: "staffs#index"
   get "/admin", to: "staffs#admin"
   get "/create", to: "staffs#new"
@@ -52,6 +52,6 @@ Rails.application.routes.draw do
 
   root "home#home"
   resources :users, only: [:edit, :update, :show]
-  resources :goods
+  resources :products
   resources :staffs
 end
