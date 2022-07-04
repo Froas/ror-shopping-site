@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'orders/index'
+  get 'orders/show'
+  get 'orders/new'
 
   get 'carts/show'
 
@@ -13,6 +16,8 @@ Rails.application.routes.draw do
   get "/admin", to: "staffs#admin"
   get "/create", to: "staffs#new"
   get "delete_staff/:id", to: "staffs#destroy", as: :delete_staff_path
+  get "delete/:id", to: "order_items#destroy", as: :delete_path
+  
 
  
   namespace :users do
@@ -52,4 +57,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update, :show]
   resources :products
   resources :staffs
+  resources :order_items
+  resource :carts, only: [:show]
+  resources :orders
 end
