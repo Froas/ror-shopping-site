@@ -1,2 +1,12 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+
+<% @order_items.each do |item|  %>
+  <h1><%= item.product.title %></h1>
+  <h2><%= item.product.price %>$</h2>
+
+  <%= link_to "Buy", root_path %>
+  <%= link_to "Remove Items", delete_path_url(item), method: :delete, remote: true%>
+<% end %>
+<p></p>
+
+<%= current_order.order_items %>
+<p><%= "#{current_order.order_items.size} items with a value of #{current_order.subtotal }$"%></p>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_04_101406) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_04_152500) do
   create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_04_101406) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "cart_items", charset: "utf8mb3", force: :cascade do |t|
+    t.string "cart_id"
+    t.string "integer"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "carts", charset: "utf8mb3", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_04_101406) do
     t.decimal "unit_price", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cart_id"
   end
 
   create_table "orders", charset: "utf8mb3", force: :cascade do |t|
@@ -59,6 +68,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_04_101406) do
     t.integer "subtotal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "email"
+    t.string "address"
   end
 
   create_table "products", charset: "utf8mb3", force: :cascade do |t|

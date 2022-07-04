@@ -4,6 +4,7 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.new(order_params)
     @order.save
     redirect_back fallback_location: root_path
+    # redirect_to  delete_path_url(@order.order_items.new(order_params))
     flash[:success] = "Items added to your cart"
     session[:order_id] = @order.id 
   end 

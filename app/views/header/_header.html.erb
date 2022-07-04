@@ -5,8 +5,11 @@
       </div>
 
         <% if user_signed_in? %> 
-          <div class="ml-auto p-2">
+        <div class="ml-auto p-2">
               <%= link_to "My cart", carts_path %> 
+          </div>
+          <div class="p-2">
+              <%= link_to "My orders", my_carts_path %> 
           </div>
             <div class="p-2">
               <%= link_to "Products", products_path %> 

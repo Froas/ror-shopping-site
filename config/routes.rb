@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   get "/admin", to: "staffs#admin"
   get "/create", to: "staffs#new"
   get "delete_staff/:id", to: "staffs#destroy", as: :delete_staff_path
-  get "delete/:id", to: "order_items#destroy", as: :delete_path
+  get "delete/:id", to: "cart_items#destroy", as: :delete_path
+  get "/my_carts", to: "orders#show"
+  get "/carts", to: "carts#show"
   
 
  
@@ -58,6 +60,7 @@ Rails.application.routes.draw do
   resources :products
   resources :staffs
   resources :order_items
-  resource :carts, only: [:show]
+  resources :carts
   resources :orders
+  resources :cart_items
 end
