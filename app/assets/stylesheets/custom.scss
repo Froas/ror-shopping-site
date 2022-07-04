@@ -23,15 +23,25 @@
 .conteiner-good{
   display: flex;
   flex-flow: row wrap;
+  flex-direction: row;
 }
 .item-good{
   margin: 20px;
   height: 300px;
   width: 300px;
   border: 1px black solid;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   display: flex;
   justify-content: center;
- 
+  align-items: center;
+
+}
+
+
+
+img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
 }

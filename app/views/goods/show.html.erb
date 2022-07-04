@@ -5,15 +5,15 @@
   </div>
     <p><%= @good.description %><p>
   <% if @good.image.attached? %>
-    <p>
       <%= image_tag @good.image, class: "img" %>
-    </p>
+  <% else %>  
+    <%= image_tag 'default-imag.jpg' %>
   <% end %>
 
   <% if staff_signed_in? %>
     <%= link_to "Edit", edit_good_path(@good), class: "btn btn-secondary" %>
     <%= link_to "Delete", delete_good_path_url(@good), class: "btn btn-danger" %>
   <% else %>
-    <%= link_to "add to card", root_path %>
+    <%= link_to "add to card", root_path, class: "btn btn-primary" %>
   <% end %>
 </div>

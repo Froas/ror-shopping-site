@@ -42,7 +42,7 @@ class GoodsController < ApplicationController
   end
 
   def index 
-    @goods = Good.paginate(page: params[:page], per_page: 10)
+    @goods = Good.paginate(page: params[:page], per_page: 12)
   end
 
   def goods_params

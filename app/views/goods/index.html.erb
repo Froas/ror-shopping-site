@@ -2,13 +2,13 @@
 <div class="conteiner-good">
   <% @goods.each do |g|  %>
   <div class="item-good">
-    <%= link_to g.title, g %>
-    <% if g.image.attached? %>
-      <p>
-        <strong>Image:</strong>
-        <%= image_tag g.image %>
-      </p>
-    <% end %>
-  </div>
+      <%= link_to g.title, g %>
+      <% if g.image.attached? %>
+        <%= link_to (image_tag g.image), g %> 
+      <% else %>
+        <%= link_to (image_tag 'default-imag.jpg'), g %>
+      <% end %>
+      <p><%= g.price %> $</p>
+    </div>
   <% end %>
 </div>
