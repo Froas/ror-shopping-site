@@ -45,3 +45,38 @@ img {
   height: 200px;
   margin-bottom: 10px;
 }
+
+.order-container{
+  display: flex;
+  flex-direction: row;
+}
+.order-item{
+  justify-content: center;
+  align-items: center;
+}
+.order-item, img{ 
+  width: 100px;
+  height: 100px;
+}
+
+.cart-container{
+  display: flex;
+  flex-direction: row;
+  border: 2px solid black;
+  width: 300px ;
+  margin-bottom: 20px;
+  margin-top: 10px ;
+}
+.cart-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+}
+.cart-item, img{ 
+  margin: 5px;
+  width: 150px;
+  height: 150px;
+}

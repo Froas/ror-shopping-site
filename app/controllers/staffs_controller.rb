@@ -1,6 +1,9 @@
 class StaffsController < ApplicationController
-# before_action :admin, only:[:create]
+before_action :staff_users
 
+  def staff_users
+    redirect_to(root_path) if current_staff.nil?
+  end
   def index 
     @staffs = Staff.paginate(page: params[:page], per_page: 10)
   end
@@ -31,9 +34,9 @@ class StaffsController < ApplicationController
 
   def update
     @staff = Staff.find(params[:id])
-    if @staff = Staff.update(staff_params)
+    if @staff.update(staff_params)
       flash[:success] = "Profile has been updated"
-      redirect_to @staff
+      redirect_to current_staff
     else 
       render "edit"
     end

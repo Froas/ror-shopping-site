@@ -1,6 +1,6 @@
 <ul>
   <li><%= link_to "List of All Products", products_path %></li>
-  <li><%= link_to "List of All Users", staffs_path %></li>
+  <li><%= link_to "List of All Staff", staffs_path %></li>
   <li><%= link_to "Add Product", new_product_path %></li>
   <% if current_staff.super_admin? %>
     <li><%= link_to "Add User", create_path %></li>
