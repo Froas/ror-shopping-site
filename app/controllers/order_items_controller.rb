@@ -3,9 +3,9 @@ class OrderItemsController < ApplicationController
     @order = current_order
     @order_item = @order.order_items.new(order_params)
     @order.save
-    redirect_back fallback_location: root_path
-    # redirect_to  delete_path_url(@order.order_items.new(order_params))
-    flash[:success] = "Items added to your cart"
+    redirect_to my_orders_path
+    # redirect_to delete_path_url(order_params)
+    flash[:success] = "Order has been confirmed"
     session[:order_id] = @order.id 
   end 
 
@@ -20,6 +20,6 @@ class OrderItemsController < ApplicationController
   private 
   
   def order_params
-    params.require(:order_item).permit(:product_id, :quantity)
+    params.require(:order_item).permit(:product_id)
   end
 end

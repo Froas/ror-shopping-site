@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get "/create", to: "staffs#new"
   get "delete_staff/:id", to: "staffs#destroy", as: :delete_staff_path
   get "delete/:id", to: "cart_items#destroy", as: :delete_path
-  get "/my_carts", to: "orders#show"
+  get "/my_orders", to: "orders#show"
   get "/carts", to: "carts#show"
   
 
