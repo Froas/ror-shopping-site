@@ -6,7 +6,8 @@ class OrderItemsController < ApplicationController
     redirect_to my_orders_path
     # redirect_to delete_path_url(order_params)
     flash[:success] = "Order has been confirmed"
-    session[:order_id] = @order.id 
+    session[:order_id] = @order.id
+    session[:user_id] = current_user.id
   end 
 
   def destroy

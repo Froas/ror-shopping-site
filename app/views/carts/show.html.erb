@@ -1,5 +1,7 @@
 
 <p><%= "You have #{current_cart.cart_items.size} items in your cart "%>
+Cart id is: <%= current_cart.id %>
+Cart: <%= current_cart %>
 <% @cart_items.each do |item|  %>
   <div class="cart-container">
     <% if item.product.image.attached? %>
@@ -20,6 +22,7 @@
       <%= f.hidden_field :product_id, :value => item.product.id %>
       <%= f.submit "Buy", class: "btn btn-primary"%>
   <% end %>
+
   <%= link_to "Remove Items", delete_path_url(item), method: :delete, remote: true%>
 <% end %>
 <p></p>

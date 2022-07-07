@@ -6,6 +6,7 @@ class CartItemsController < ApplicationController
     redirect_back fallback_location: root_path
     flash[:success] = "Items added to your cart"
     session[:cart_id] = @cart.id 
+    
   end 
 
   def destroy

@@ -23,8 +23,7 @@ User.create!(
     name: name,
     email: email,
     password: password,
-    password_confirmation: password,
-    admin: [true, false].sample
+    password_confirmation: password
   )
 end
 
