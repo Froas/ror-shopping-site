@@ -10,7 +10,7 @@ Staff.create!(
 
 User.create!(
   name:  "Example user",
-  email: "example user@example.com",
+  email: "example-user@example.com",
   password:              "foobar",
   password_confirmation: "foobar",
 )

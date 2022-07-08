@@ -1,6 +1,6 @@
 <div class="col">
   <h1>Add a Staff to the team</h1>
-  <%= form_for(:staff, url: create_staff_path) do |f| %>
+  <%= form_with(scope: :staff, url: create_staff_path) do |f| %>
 
       <%= f.label :name, "Name" %>
       <%= f.text_field :name, class: 'form-control' %>

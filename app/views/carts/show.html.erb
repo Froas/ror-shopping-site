@@ -18,7 +18,7 @@ Cart: <%= current_cart %>
       <p><%= item.product.price %>$</p>
     </div>
   </div>
-  <%= form_for @order_item, remote: true, data: { controller:  "confirmation", action: "submit->confirmation#confirm" }   do |f|%>
+  <%= form_with model: @order_item, remote: true, data: { controller:  "confirmation", action: "submit->confirmation#confirm" }   do |f|%>
       <%= f.hidden_field :product_id, :value => item.product.id %>
       <%= f.submit "Buy", class: "btn btn-primary"%>
   <% end %>
