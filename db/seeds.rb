@@ -1,7 +1,7 @@
 
 Staff.create!(
   name:  "Admin",
-  email: "admin@admin.com",
+  email: "admin@example.com",
   password:              "admin123",
   password_confirmation: "admin123",
   super_admin:     true,
@@ -9,10 +9,10 @@ Staff.create!(
 
 
 User.create!(
-  name:  "Admin",
-  email: "admin2@user.com",
-  password:              "admin1",
-  password_confirmation: "admin1",
+  name:  "Example user",
+  email: "example user@example.com",
+  password:              "foobar",
+  password_confirmation: "foobar",
 )
 
 10.times do |n|
@@ -38,7 +38,6 @@ end
     email: email,
     password: password,
     password_confirmation: password,
-    super_admin: [true, false].sample
   )
 end
 

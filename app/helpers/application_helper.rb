@@ -6,7 +6,7 @@ module ApplicationHelper
     if !session[:order_id].nil?
       Order.find(session[:order_id])
     else
-      Order.new
+      current_user.order || current_user.build_order
     end
   end
 
