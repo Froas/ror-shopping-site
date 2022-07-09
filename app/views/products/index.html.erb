@@ -1,14 +1,12 @@
-<%= will_paginate @products %>
-<div class="conteiner-product">
+<%= will_paginate @products, class: "pagination"%>
+<div class="container-product">
   <% @products.each do |g|  %>
-  <div class="item-product">
-      <%= link_to g.title, g %>
-      <% if g.image.attached? %>
-        <%= link_to (image_tag g.image), g %> 
-      <% else %>
-        <%= link_to (image_tag 'default-imag.jpg'), g %>
-      <% end %>
-      <p><%= g.price %> $</p>
+    <div class="item-product">
+        <a href=<%= "/products/#{g.id}"%> class="product-img-container">
+          <%= image_tag (g.image.attached?  ? g.image : 'default-imag.jpg'), class: "product-img" %> 
+        </a>
+        <p class="product-title"><%= g.title %></p>
+        <p class="product-price"><%= g.price %> $</p>
     </div>
   <% end %>
 </div>

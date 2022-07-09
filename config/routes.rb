@@ -55,7 +55,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root "home#home"
+  root "products#index"
   resources :users, only: [:edit, :update, :show]
   resources :products
   resources :staffs

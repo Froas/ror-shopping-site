@@ -1,50 +1,96 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+$main-color: white;
+$accent-color: #121211;
+$second-color: #337ab7;
 
+body {
+  background-color: $main-color;
+  color: $accent-color;
+}
+
+a {
+  text-decoration: none;
+  color: $accent-color; 
+  &:hover{
+    text-decoration: none;
+    color: $accent-color;
+  }
+}
+
+.pagination {
+  // background-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-product{
+  margin: 20px;
+  height: 300px;
+  width: 300px;
+  border: 1px $accent-color solid;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.product-img-container{
+  width: 100%;
+  height: 75%;
+  border-bottom: 1px $accent-color solid;
+  box-sizing: border-box;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.product-title {
+  width: 100%;
+  height: 15%;
+  font-size: 2rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.product-price{
+  width: 100%;
+  height: 10%;
+  font-size: 1.5rem;
+  display: flex;
+
+  flex-direction: row-reverse;
+  padding: 5px;
+}
 
 .container {
   display: flex;
 }
 
-.img {
-  width: 200px;
-  height: 200px;
-}
-
 .item_block{
   margin: 10px;
   padding: 10px;
-  width: 300px
+  width: 300px;
 }
 .button{
   margin: 10px
 }
 
-.conteiner-product{
+.container-product{
+  width: 100%;
   display: flex;
+  justify-content: center;
   flex-flow: row wrap;
   flex-direction: row;
 }
-.item-product{
-  margin: 20px;
-  height: 300px;
-  width: 300px;
-  border: 1px black solid;
-  flex-direction: column;
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-}
-
-
-
-img {
-  width: 200px;
-  height: 200px;
-  margin-bottom: 10px;
-}
 
 .order-container{
   display: flex;
@@ -53,10 +99,6 @@ img {
 .order-item{
   justify-content: center;
   align-items: center;
-}
-.order-item, img{ 
-  width: 100px;
-  height: 100px;
 }
 
 .cart-container{
@@ -75,8 +117,9 @@ img {
   margin: 5px;
   padding: 5px;
 }
-.cart-item, img{ 
+.cart-item{ 
   margin: 5px;
   width: 150px;
   height: 150px;
 }
+
