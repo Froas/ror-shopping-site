@@ -2,5 +2,8 @@
    <p>Hello <%= @user.name %></p>
    <p>Your email is <%= @user.email %></p>
 </div>
-
-<%= link_to "Edit profile", edit_user_registration_path %>
+<% if user_signed_in? %>
+   <%= link_to "Edit profile", edit_user_registration_path %>
+<% else %>
+   <%= link_to "User order", user_order_path(id: @user.id) %>
+<% end %>

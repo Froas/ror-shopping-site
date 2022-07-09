@@ -1,8 +1,16 @@
 
 Your order Confirmed!
-<h1>Hello <%= current_user.name %></h1>
+<%
+=begin%>
+ <h1>Hello <%= current_user.name %></h1> 
+<%
+=end%>
 You order has been confirmed 
-<h2>Your email is:<%= current_user.email %></h2>
+<%
+=begin%>
+ <h2>Your email is:<%= current_user.email %></h2> 
+<%
+=end%>
 <p>Your orders are:</p>
 <% @order_items.each do |item| %> 
   <div class="order-container">
@@ -23,6 +31,11 @@ You order has been confirmed
   <%= link_to "Remove Items", delete_path_url(item), method: :delete, remote: true%>
 <% end %>
 <p></p>
-
+<%
+=begin%>
+ 
 <%= current_order.order_items %>
-<p><%= "#{current_order.order_items.size} items with a value of $"%></p>
+<%= "#{current_order.order_items.size} items with a value of $"%> 
+<%
+=end
+%>

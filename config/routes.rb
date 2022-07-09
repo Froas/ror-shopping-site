@@ -18,15 +18,16 @@ Rails.application.routes.draw do
   get "delete_staff/:id", to: "staffs#destroy", as: :delete_staff_path
   get "delete/:id", to: "cart_items#destroy", as: :delete_path
   get "/my_orders", to: "orders#show"
+  get "/user_order", to: "orders#show"
   get "/carts", to: "carts#show"
   
 
  
   namespace :users do
-    get 'dashboard/index'
+    get 'root'
   end
   namespace :staffs do
-    get 'dashboard/index'
+    get 'staff'
   end
 
   devise_for :users, path: 'users', controllers: {
@@ -42,7 +43,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     authenticated :user do
       namespace :users do
-        get 'dashboard/index', as: :authenticated_root
+        get 'root', as: :authenticated_root
       end
     end
   end
@@ -56,7 +57,7 @@ Rails.application.routes.draw do
   end
 
   root "products#index"
-  resources :users, only: [:edit, :update, :show]
+  resources :users
   resources :products
   resources :staffs
   resources :order_items
