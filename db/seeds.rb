@@ -1,9 +1,9 @@
 
 Staff.create!(
   name:  "Admin",
-  email: "admin@example.com",
-  password:              "admin123",
-  password_confirmation: "admin123",
+  email: "admin2@example.com",
+  password:              "123456",
+  password_confirmation: "123456",
   super_admin:     true,
 )
 

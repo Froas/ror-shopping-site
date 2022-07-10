@@ -1,12 +1,10 @@
 
 <%= will_paginate @staffs  %>
-  <ul>
-    <% @staffs.each do |staff| %>
-      <li>
-        <%= link_to staff.name, staff %>
-      </li>  
-      <%= link_to "Delete staff", delete_staff_path_url(id: staff.id), method: :delete %>
-    <br />
-  </ul>
+<div class="user-container">
+  <% @staffs.each do |staff| %>
+    <div class="user-card">
+      <%= link_to staff.name, staff, class: "user-name"%>
+      <%= link_to "Delete staff", delete_staff_path_url(id: staff.id), method: :delete, class: "staff-delete-button" %>
+    </div>
   <% end %>
-<%= will_paginate %>
+</div>

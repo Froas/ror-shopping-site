@@ -1,24 +1,25 @@
-  <%= link_to "Back", products_path, class: "btn btn-primary button"%>
-<div class="item_block">
-  <div>
-    <h1><%= @product.title %><h1>
-  </div>
-    <p><%= @product.description %><p>
-  <% if @product.image.attached? %>
-      <%= image_tag @product.image, class: "img" %>
-  <% else %>  
-    <%= image_tag 'default-imag.jpg' %>
-  <% end %>
 
-  <% if staff_signed_in? %>
-    <div>
-      <%= link_to "Edit", edit_product_path(@product), class: "btn btn-secondary" %>
-      <%= link_to "Delete", delete_product_path_url(@product), class: "btn btn-danger" %>
+<div class="product-info-container">
+  <%= image_tag (@product.image.attached? ? @product.image : 'default-imag.jpg'),  class: "product-info-img" %>
+  <div class="product-info">
+    <div class="product-info-title">
+      <%= @product.title %>
     </div>
-  <% else %>
-    <%= form_with model: @cart_item, remote: true  do |f|%>
-      <%= f.hidden_field :product_id, :value => @product.id %>
-      <%= f.submit "Add to Card ", class: "btn btn-primary"%>
-    <% end %>
-  <% end %>
+    <div class="product-info-description">
+      <%= @product.description %>
+    </div>
+    
+    <div class="product-info-button-container">
+      <% if staff_signed_in? %>
+        <%= link_to "Edit", edit_product_path(@product), class: "product-info-admin-button" %>
+        <%= link_to "Delete", delete_product_path_url(@product), class: "product-info-admin-button" %>
+      <% else %>
+
+        <%= form_with model: @cart_item, remote: true, class: "product-info-form-button" do |f|%>
+          <%= f.hidden_field :product_id, :value => @product.id %>
+          <%= f.submit "Add to Card ",  class: "product-info-button" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

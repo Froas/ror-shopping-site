@@ -1,11 +1,7 @@
 
 <%= will_paginate @users  %>
-  <ul>
-    <% @users.each do |user| %>
-      <li>
-        <%= link_to user.name, user %>
-      </li>  
-    <% end %>
-    <br>
-  </ul>
-<%= will_paginate %>
+<div class="user-container">
+  <% @users.each do |user| %>
+    <%= link_to user.name, user , class: "user-card"%>
+  <% end %>
+</div>

@@ -1,5 +1,5 @@
 <%= will_paginate @products, class: "pagination"%>
-<div class="container-product">
+<div class="container-products">
   <% @products.each do |g|  %>
     <div class="item-product">
         <a href=<%= "/products/#{g.id}"%> class="product-img-container">
