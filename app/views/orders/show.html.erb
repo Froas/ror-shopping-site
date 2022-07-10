@@ -1,11 +1,10 @@
 
-Your order Confirmed!
+
 <%
 =begin%>
  <h1>Hello <%= current_user.name %></h1> 
 <%
 =end%>
-You order has been confirmed 
 <%
 =begin%>
  <h2>Your email is:<%= current_user.email %></h2> 
@@ -28,7 +27,7 @@ You order has been confirmed
       <p><%= item.product.price %>$</p>
     </div>
   </div>
-  <%= link_to "Remove Items", delete_path_url(item), method: :delete, remote: true%>
+
 <% end %>
 <p></p>
 <%

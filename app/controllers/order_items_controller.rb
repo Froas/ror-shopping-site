@@ -5,6 +5,7 @@ class OrderItemsController < ApplicationController
     @order.save
     # CartItem.find(params[:item_id]).destroy
     redirect_to my_orders_path
+    OrderMailer.order_confirmation(current_user, @order_item).deliver_now
     flash[:success] = "Order has been confirmed"
     session[:order_id] = @order.id
     session[:user_id] = current_user.id
