@@ -1,10 +1,8 @@
-class OrdersController < ApplicationController
-  def index
-  end
+class OrderLineItemsController < ApplicationController
 
   def show
     if user_signed_in?
-      @order_items = current_order.order_line_items
+      @order_items = current_order.order_items
     elsif 
       staff_signed_in?
       @user = User.find(params[:id]) 
@@ -14,5 +12,7 @@ class OrdersController < ApplicationController
 
   def new
   end
-  
+
+  def index
+  end
 end

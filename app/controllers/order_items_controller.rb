@@ -1,8 +1,8 @@
 class OrderItemsController < ApplicationController
   def create
-    @order = current_order
-    @order_item = @order.order_items.new(order_params)
-    @order.save
+    @order_line_items = current_order_line_items
+    @order_item = @order_line_items.order_items.new(order_params)
+    @order_line_items.save
     # CartItem.find(params[:item_id]).destroy
     redirect_to my_orders_path
     OrderMailer.order_confirmation(current_user, @order_item).deliver_now

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'order_line_items/show'
+  get 'order_line_items/new'
+  get 'order_line_items/index'
   get 'orders/index'
   get 'orders/show'
   get 'orders/new'

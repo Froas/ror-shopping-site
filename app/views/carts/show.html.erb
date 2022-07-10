@@ -6,7 +6,7 @@ Cart: <%= current_cart %>
   <div class="cart-container">
     <% if item.product.image.attached? %>
       <div class="cart-item-img">
-        <%= image_tag item.product.image, class: "img" %>
+        <%= image_tag item.product.image %>
       </div>
     <% else %>
       <div class="cart-item-img">  
