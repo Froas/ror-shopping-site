@@ -1,6 +1,6 @@
 class OrderItemsController < ApplicationController
   def create
-    @order_line_items = current_order_line_items
+    @order_line_items = current_order_line
     @order_item = @order_line_items.order_items.new(order_params)
     @order_line_items.save
     # CartItem.find(params[:item_id]).destroy
@@ -8,7 +8,7 @@ class OrderItemsController < ApplicationController
     OrderMailer.order_confirmation(current_user, @order_item).deliver_now
     flash[:success] = "Order has been confirmed"
     session[:order_id] = @order.id
-    session[:user_id] = current_user.id
+    # session[:user_id] = current_user.id
   end 
 
   def destroy
