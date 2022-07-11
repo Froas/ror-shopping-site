@@ -18,12 +18,16 @@ module ApplicationHelper
   # end
 
     
+
   def current_order_line
     if session[:order_line_id].present?
-      OrderLineItem.find(session[:order_line_id])
-    else
-    OrderLineItem.new
-    end
+        OrderLineItem.find(session[:order_line_id])
+      else
+        if !current_order.order_line_items
+           current_order.build_order_line_items
+        end
+        current_order.order_line_items.first
+      end
   end
 
 

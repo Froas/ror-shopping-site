@@ -1,13 +1,13 @@
 class OrderItemsController < ApplicationController
   def create
-    @order_line_items = current_order_line
-    @order_item = @order_line_items.order_items.new(order_params)
-    @order_line_items.save
+    @order_line_item = current_order.order_line_items
+    @order_item = @order_line_item.order_items.new(order_params)
+    @order_line_item.save
     # CartItem.find(params[:item_id]).destroy
     redirect_to my_orders_path
     OrderMailer.order_confirmation(current_user, @order_item).deliver_now
     flash[:success] = "Order has been confirmed"
-    session[:order_id] = @order.id
+    # session[:order_id] = @order.id
     # session[:user_id] = current_user.id
   end 
 
