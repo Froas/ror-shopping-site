@@ -9,6 +9,10 @@ class OrderItemsController < ApplicationController
     flash[:success] = "Order has been confirmed"
     session[:order_id] = @order.id
     session[:user_id] = current_user.id
+    cart_controller  = CartItemsController.new
+    cart_controller = request 
+    cart_controller = response
+    cart_controller.destroy
   end 
 
   def destroy
