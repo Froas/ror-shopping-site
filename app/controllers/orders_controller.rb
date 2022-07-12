@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
   def detail
     if user_signed_in?
       @user = current_user
-    else
+    elsif
       @user = User.find(params[:user])
     end
       @item = OrderItem.find(params[:item])
