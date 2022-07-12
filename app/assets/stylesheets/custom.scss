@@ -208,9 +208,9 @@ a {
   width: 100%;
   min-height: 80vh;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 250px);
   gap: 10px;
-  justify-content: center;
+  justify-content:left;
+  margin: 15px;
 }
 
 .user-card{
@@ -395,4 +395,41 @@ a {
   border-radius: 30px;
   border: 1px solid $accent-color;
   font-size: 1.5rem;
+}
+
+.admin-container{
+  min-height: 80vh;
+  width: 100%;
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
+
+}
+
+.admin-card{
+  height: 70px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border: 1px solid $accent-color;
+  margin: 5px;
+}
+
+.staff-container{
+  width: 100%;
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
+}
+.staff-button{
+  margin: 10px;
+}
+
+.user-show-container{
+  width: 100%;
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
 }

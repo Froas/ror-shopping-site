@@ -1,7 +1,8 @@
-<div>
+<div class="staff-container">
    <p>Hello <%= @staff.name %></p>
    <p>Your email is <%= @staff.email %></p>
    <p>Are you Admin? = <%= @staff.super_admin %></p>
 </div>
-
-<%= link_to "Edit profile", edit_staff_path(@staff)%>
+<div class="staff-button">
+   <%= link_to "Edit profile", edit_staff_path(@staff), class: "btn btn-primary"%>
+</div>

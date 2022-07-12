@@ -1,9 +1,19 @@
-<ul>
-  <li><%= link_to "List of All Products", products_path %></li>
-  <li><%= link_to "List of All Staff", staffs_path %></li>
-    <li><%= link_to "List of All User", users_path %></li>
-  <li><%= link_to "Add Product", new_product_path %></li>
+<div class="admin-container">
+  <div class="admin-card">
+    <%= link_to "List of All Products", products_path %>
+  </div>
+  <div class="admin-card">
+    <%= link_to "List of All Staff", staffs_path %>
+  </div>
+  <div class="admin-card">  
+    <%= link_to "List of All User", users_path %>
+  </div>
+  <div class="admin-card">
+    <%= link_to "Add Product", new_product_path %>
+  </div>
   <% if current_staff.super_admin? %>
-    <li><%= link_to "Add Staff", create_path %></li>
+    <div class="admin-card">
+      <%= link_to "Add Staff", create_path %>
+    </div>
   <% end %>
-</ul>
+<div>

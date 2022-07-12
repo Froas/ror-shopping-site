@@ -6,7 +6,7 @@
           <%= image_tag (g.image.attached?  ? g.image : 'default-imag.jpg'), class: "product-img" %> 
         </a>
         <p class="product-title"><%= g.title %></p>
-        <p class="product-price"><%= g.price %> $</p>
+        <p class="product-price">Tax is not included <%= g.price %> $</p>
     </div>
   <% end %>
 </div>

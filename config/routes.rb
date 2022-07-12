@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get "/my_orders", to: "orders#show"
   get "/user_order", to: "orders#show"
   get "/carts", to: "carts#show"
+  get "/details", to: "orders#detail"
   
 
  

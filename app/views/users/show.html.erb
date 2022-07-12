@@ -1,9 +1,12 @@
-<div>
+<div class="user-show-container">
    <p>User name <%= @user.name %></p>
    <p>User email <%= @user.email %></p>
 </div>
 <% if user_signed_in? %>
-   <%= link_to "Edit profile", edit_user_registration_path %>
-<% else %>
-   <%= link_to "User order", user_order_path(id: @user.id) %>
+   <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-primary" %>
+<% elsif staff_signed_in? %>
+   <%= link_to "User order", user_order_path(id: @user.id), class: "btn btn-primary" %>
 <% end %>
+
+
+

@@ -4,20 +4,20 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.new(order_params)
     @order.save
     redirect_to my_orders_path
-    # delete_item(order_params)
+    # delete_item
     OrderMailer.order_confirmation(current_user, @order_item).deliver_now
     flash[:success] = "Order has been confirmed"
     session[:order_id] = @order.id
     session[:user_id] = current_user.id
   end 
 
-  # def delete_item(params)
+  # def delete_item
   #   cart_items_controller  = CartItemsController.new 
   #   cart_items_controller = request 
   #   cart_items_controller = response
-  #   cart_items_controller.params = { cart_id: params }
-  #   cart_items_controller.process(:test)
-  #   render html: cart_items_controller.render_to_string(:home)
+  #   # cart_items_controller.params = { cart_id: params }
+  #   cart_items_controller.destroy
+  #   # render html: cart_items_controller.render_to_string(:home)
   # end
 
   def destroy
