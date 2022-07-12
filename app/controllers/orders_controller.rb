@@ -12,6 +12,10 @@ class OrdersController < ApplicationController
     end
   end
 
+  def detail
+    @user = User.find(params[:id])
+  end
+
   def new
   end
   

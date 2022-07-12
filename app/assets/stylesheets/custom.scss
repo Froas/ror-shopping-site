@@ -356,3 +356,43 @@ a {
     opacity: 0.9;
   }
 }
+
+.order-item-container{
+  height: 150px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border: 1px solid $accent-color;
+  margin: 5px;
+}
+
+.order-detail-button{
+  position: relative;
+  font-size: 10px;
+  height: 35px;
+  color: $second-color;
+  padding: 5px;
+  text-align: center;
+  right: -200px;
+  top: -145px;
+  z-index: 9999;
+  
+  &:hover{
+    opacity: 0.9;
+  }
+}
+
+.order-item-quantity{
+  width: 300px;
+  margin: 20px;
+  margin-top: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  border: 1px solid $accent-color;
+  font-size: 1.5rem;
+}

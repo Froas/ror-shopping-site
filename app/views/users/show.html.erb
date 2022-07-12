@@ -1,6 +1,6 @@
 <div>
-   <p>Hello <%= @user.name %></p>
-   <p>Your email is <%= @user.email %></p>
+   <p>User name <%= @user.name %></p>
+   <p>User email <%= @user.email %></p>
 </div>
 <% if user_signed_in? %>
    <%= link_to "Edit profile", edit_user_registration_path %>

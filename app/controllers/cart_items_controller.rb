@@ -16,7 +16,10 @@ class CartItemsController < ApplicationController
     redirect_to carts_path
   end
 
-  private 
+  def test 
+    flash[:success] = "ura"
+  end
+
   
   def cart_params
     params.require(:cart_item).permit(:product_id)

@@ -1,40 +1,20 @@
-
-
-<%
-=begin%>
- <h1>Hello <%= current_user.name %></h1> 
-<%
-=end%>
-<%
-=begin%>
- <h2>Your email is:<%= current_user.email %></h2> 
-<%
-=end%>
-<p>Your orders are:</p>
-<% @order_items.each do |item| %> 
-  <div class="order-container">
-    <% if item.product.image.attached? %>
-      <div class="order-item-img">
-        <%= image_tag item.product.image, class: "img" %>
-      </div>
-    <% else %>
-      <div class="order-item-img">  
-        <%= image_tag 'default-imag.jpg' %>
-      </div>
-    <% end %>
-    <div class="order-item">
-      <p><%= item.product.title %></p>
-      <p><%= item.product.price %>$</p>
+<div class="cart-items-container">
+  <% if user_signed_in? %>
+    <p class="order-item-quantity"><%= "You have #{current_order.order_items.size} orders "%></p>
+  <% elsif staff_signed_in? %>
+    <p class="order-item-quantity"><%= " #{@user.name} have #{@order_items.size} orders "%></p>
+  <% end %>
+  <% @order_items.each do |item| %> 
+  <div class="order-item-container">
+    <%= image_tag item.product.image.attached? ? item.product.image : 'default-imag.jpg', class: "cart-item-img"  %>
+    <div class="cart-item-info">
+      <p>You order number <%= item.id %> <p>
+      <p class="cart-item-title"><%= item.product.title %></p>
+      <p class="cart-item-title"><%= item.product.price %> $</p>
     </div>
   </div>
-
-<% end %>
-<p></p>
-<%
-=begin%>
- 
-<%= current_order.order_items %>
-<%= "#{current_order.order_items.size} items with a value of $"%> 
-<%
-=end
-%>
+  <%= link_to "Detail about Order", delete_path_url(item), method: :delete, remote: true, class: "order-detail-button"%>
+  <%= item %>
+  <%= item.id %>
+  <% end %>
+</div>
