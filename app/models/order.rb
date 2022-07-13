@@ -11,5 +11,4 @@ class Order::Create
         cart.destroy
       end
   end
-
 end

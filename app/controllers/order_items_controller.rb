@@ -27,7 +27,9 @@ class OrderItemsController < ApplicationController
       @order_item = @order_line_item.order_items.new(product_id: item.product_id)
       @order_line_item.save
       @order.save
-       flash[:success] = "Order has been confirmed"
+      current_item = CartItem.find_by(cart_id: current_cart.id)
+      order = Order::Create.new.call(current_item)
+      flash[:success] = "Order has been confirmed"
       session[:order_id] = @order.id
       session[:user_id] = current_user.id
     end
