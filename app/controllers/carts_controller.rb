@@ -9,8 +9,10 @@ class CartsController < ApplicationController
   end
 
   def show
+    # byebug
     @cart_items = current_cart.cart_items
-    @order_item = current_order.order_items.new
+    @order_line_item = current_order.order_line_items.new
+    @order_item = @order_line_item.order_items.new
   end
 
   def new

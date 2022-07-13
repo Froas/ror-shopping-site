@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
   def show
     if user_signed_in?
-      @order_items = current_order.order_items
+      @order_items = current_order.order_line_items
     elsif 
       staff_signed_in?
       @user = User.find(params[:id]) 

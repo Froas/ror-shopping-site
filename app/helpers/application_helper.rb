@@ -8,6 +8,28 @@ module ApplicationHelper
       @curr_user.order || @curr_user.build_order
     end
   end
+  
+  # def current_order_line(order_line)
+  #   if OrderItem.find_by(order_line_id: order_line[:id]).present?
+  #     OrderItem.find_by(order_line_id: order_line[:id])
+  #   else 
+  #     current_order.order_line_items || current_order.build_order_line_items
+  #   end
+  # end
+
+    
+
+  def current_order_line
+    if session[:order_line_id].present?
+        OrderLineItem.find(session[:order_line_id])
+      else
+        if !current_order.order_line_items
+           current_order.build_order_line_items
+        end
+        current_order.order_line_items.first
+      end
+  end
+
 
   def current_order
     if session[:order_id].present?

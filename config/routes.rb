@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'order_line_items/show'
+  get 'order_line_items/new'
+  get 'order_line_items/index'
   get 'orders/index'
   get 'orders/show'
   get 'orders/new'
@@ -21,6 +24,7 @@ Rails.application.routes.draw do
   get "/user_order", to: "orders#show"
   get "/carts", to: "carts#show"
   get "/details", to: "orders#detail"
+  get "/order_checkout", to: "order_items#buy_all"
   
 
  

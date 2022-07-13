@@ -1,7 +1,9 @@
 class OrderItemsController < ApplicationController
   def create
     @order = current_order
-    @order_item = @order.order_items.new(order_params)
+    @order_line_item = @order.order_line_items.new
+    @order_item = @order_line_item.order_items.new(order_params)
+    @order_line_item.save
     @order.save
     # render status: :ok, json: JSON.parse(CartItemsController.render(:destroy).first)
     # CartItem.find(params[:item_id]).destroy
@@ -16,15 +18,32 @@ class OrderItemsController < ApplicationController
     # render json:  order
   end 
 
-  # def delete_item
-  #   cart_items_controller  = CartItemsController.new 
-  #   cart_items_controller = request 
-  #   cart_items_controller = response
-  #   controller_you_want.params = { test: 1 }
-  #   cart_items_controller.process(:test)
-  #    render html: cart_items_controller.render_to_string(:home)
- 
-  # end
+  def buy_all
+    @cart_items = current_cart.cart_items
+    @order = current_order
+    @order_line_item = @order.order_line_items.new
+    redirect_to my_orders_path
+    @cart_items.each do |item|
+      @order_item = @order_line_item.order_items.new(product_id: item.product_id)
+      @order_line_item.save
+      @order.save
+       flash[:success] = "Order has been confirmed"
+      session[:order_id] = @order.id
+      session[:user_id] = current_user.id
+    end
+    
+  end
+
+  def show
+    if user_signed_in?
+      @order_items = current_order.order_line_items
+      # @order_items = OrderItems.find_by(order_line_item_id: )
+    elsif 
+      staff_signed_in?
+      @user = User.find(params[:id]) 
+      @order_items = user_order(@user).order_items
+    end
+  end
 
   def destroy
     @order = current_order
