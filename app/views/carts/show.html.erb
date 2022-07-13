@@ -27,3 +27,4 @@ Cart: <%= current_cart %>
   <%= link_to "Remove Items", delete_path_url(item), method: :delete, remote: true%>
 <% end %>
 <p></p>
+<%= link_to "Buy All Items", order_checkout_path %>
