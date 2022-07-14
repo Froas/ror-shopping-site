@@ -40,8 +40,7 @@ class OrderItemsController < ApplicationController
     if user_signed_in?
       @order_items = current_order.order_line_items
       # @order_items = OrderItems.find_by(order_line_item_id: )
-    elsif 
-      staff_signed_in?
+    elsif staff_signed_in?
       @user = User.find(params[:id]) 
       @order_items = user_order(@user).order_items
     end

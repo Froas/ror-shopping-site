@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
     elsif 
       staff_signed_in?
       @user = User.find(params[:id]) 
-      @order_items = user_order(@user).order_items
+      @order_items = user_order(@user).order_line_items
     end
   end
 

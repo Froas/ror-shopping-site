@@ -358,6 +358,17 @@ a {
   }
 }
 
+.orders-item-container{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid $accent-color;
+  margin: 5px;
+}
+
+
 .order-item-container{
   height: 150px;
   width: 500px;
