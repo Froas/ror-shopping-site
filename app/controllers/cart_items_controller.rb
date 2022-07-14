@@ -6,7 +6,7 @@ class CartItemsController < ApplicationController
     redirect_back fallback_location: root_path
     flash[:success] = "Items added to your cart"
     session[:cart_id] = @cart.id 
-    
+    order_item = OrderedProduct::Create.new.order(cart_params)
   end 
 
   def destroy

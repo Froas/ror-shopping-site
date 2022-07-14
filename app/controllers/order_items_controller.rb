@@ -5,17 +5,13 @@ class OrderItemsController < ApplicationController
     @order_item = @order_line_item.order_items.new(order_params)
     @order_line_item.save
     @order.save
-    # render status: :ok, json: JSON.parse(CartItemsController.render(:destroy).first)
-    # CartItem.find(params[:item_id]).destroy
     redirect_to carts_path
-    # delete_item
     OrderMailer.order_confirmation(current_user, @order_item).deliver_now
     flash[:success] = "Order has been confirmed"
     session[:order_id] = @order.id
     session[:user_id] = current_user.id
     current_item = CartItem.find_by(id: params[:order_item][:cart_id,])
     order = Order::Create.new.call(current_item)
-    # render json:  order
   end 
 
   def buy_all
