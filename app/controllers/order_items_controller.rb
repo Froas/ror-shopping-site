@@ -1,8 +1,9 @@
 class OrderItemsController < ApplicationController
   def create
     @order = current_order
+    @ordered_product = OrderedProduct.find_by(id: params[:order_item][:product_id])
     @order_line_item = @order.order_line_items.new
-    @order_item = @order_line_item.order_items.new(order_params)
+    @order_item = @order_line_item.order_items.new(ordered_product_id: @ordered_product.id)
     @order_line_item.save
     @order.save
     redirect_to carts_path
@@ -10,7 +11,7 @@ class OrderItemsController < ApplicationController
     flash[:success] = "Order has been confirmed"
     session[:order_id] = @order.id
     session[:user_id] = current_user.id
-    current_item = CartItem.find_by(id: params[:order_item][:cart_id,])
+    current_item = CartItem.find_by(id: params[:order_item][:cart_id])
     order = Order::Create.new.call(current_item)
   end 
 
@@ -52,10 +53,8 @@ class OrderItemsController < ApplicationController
 
   private 
   
-  def order_params
-    params.require(:order_item).permit(:product_id)
+  def order_params(a)
+    params.require(a).permit(:product_id)
   end
-  def cart_params
-    params.require(:order_item).permit(:item_id)
-  end
+
 end
