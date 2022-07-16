@@ -1,6 +1,8 @@
 <h1>Update product</h1>
 <%= form_with(model: @product) do |g| %>
 
+  <%= g.hidden_field :id, :value => @product.id * 2 + 1 %>
+
   <div class="mb-3">
     <%= g.label :title %>
     <%= g.text_field :title, placeholder: "Title"  %>

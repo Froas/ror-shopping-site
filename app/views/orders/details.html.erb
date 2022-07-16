@@ -1,12 +1,13 @@
 
 <div class="cart-items-container">
 <h1>Order Detail</h1>
-<%= @order %>
+  <% @items.each do |item| %>
+  <% @item = OrderItem.find(item)%>
   <div>
-    Order number: #<%= (@item.id * @item.ordered_product.id)%>
+    Order number: <%= @item.id %>
   <div>
   <div>
-    Oder Created <%= @order.created_at %>
+    Oder Created <%= @item.created_at %>
   </div>
   <div>
     Total price <%= @item.ordered_product.price %>$
@@ -26,4 +27,5 @@
 
     </div>
 </div>
+<% end %>
 <div>

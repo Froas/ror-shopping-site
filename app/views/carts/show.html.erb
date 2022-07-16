@@ -17,7 +17,9 @@
     </div>
     <p class="cart-item-price"><%= item.product.price %>$</p>
     <%= link_to "✕", delete_path_url(item), method: :delete, remote: true, class: "cart-item-delete-button"%>
-  <%= item.id%>
+  <% end %>
+  <% if current_cart.cart_items.size > 0 %>
+    <%= link_to "Buy All Items", order_checkout_path, class: "btn btn-primary" %>
   <% end %>
 </div>
-<%= link_to "Buy All Items", order_checkout_path %>
+

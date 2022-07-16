@@ -29,9 +29,25 @@ class OrdersController < ApplicationController
       @user = User.find(params[:user])
     end
       @item = OrderItem.find(params[:item])
+      @order = OrderLineItem.find_by(id: @item.order_line_item_id)
+  end
+
+  def details
+    if user_signed_in?
+      @user = current_user
+    elsif
+      @user = User.find(params[:user])
+    end
+      @items = params[:items]
+  end
+
+  def detail_update 
+    @item = OrderItem.find(params[:id])
+    @item.update(status: params[:status])
+    redirect_back fallback_location: root_path
   end
 
   def new
   end
-  
+
 end

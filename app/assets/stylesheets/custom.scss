@@ -358,6 +358,16 @@ a {
   }
 }
 
+.cart-item-buy-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $main-color;
+  background-color: $second-color;
+  &:hover{
+    opacity: 0.9;
+  }
+}
 .orders-item-container{
 
   display: flex;

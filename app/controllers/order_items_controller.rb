@@ -21,7 +21,7 @@ class OrderItemsController < ApplicationController
     @order_line_item = @order.order_line_items.new
     redirect_to my_orders_path
     @cart_items.each do |item|
-      @order_item = @order_line_item.order_items.new(product_id: item.product_id)
+      @order_item = @order_line_item.order_items.new(ordered_product_id: item.product_id)
       @order_line_item.save
       @order.save
       current_item = CartItem.find_by(cart_id: current_cart.id)
