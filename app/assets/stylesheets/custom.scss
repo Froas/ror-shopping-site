@@ -376,6 +376,9 @@ a {
   flex-direction: column;
   border: 1px solid $accent-color;
   margin: 5px;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 
@@ -400,6 +403,18 @@ a {
   right: -200px;
   top: -145px;
   z-index: 9999;
+  
+  &:hover{
+    opacity: 0.9;
+  }
+}
+
+.orders-detail-button{
+  font-size: 10px;
+  height: 35px;
+  color: $second-color;
+  padding: 5px;
+  text-align: center;
   
   &:hover{
     opacity: 0.9;

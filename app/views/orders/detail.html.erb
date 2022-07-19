@@ -3,7 +3,7 @@
 <h1>Order Detail</h1>
 <%= @order %>
   <div>
-    Order number: #<%= (@item.id * @item.ordered_product.id)%>
+    Order number: #<%= (@order.id)%>
   <div>
   <div>
     Oder Created <%= @order.created_at %>
@@ -16,14 +16,15 @@
     <div class="cart-item-info">
       <p class="cart-item-title">Product name: <%= @item.ordered_product.title %></p>
       <p class="cart-item-title">Status: <%= @item.status %> </p>
-      <% if @item.status != "Order has shipped" %> 
-        <%= form_with url: status_update_path do |form| %>
-          <%= form.hidden_field :id, :value => @item.id %>
-          <%= form.select :status, @item.status === "Payment is pending" ? [["Confirm Payment", "Shipping soon"], ["Ship order", "Order has shipped"]] : [["Ship order", "Order has shipped"]]  %>
-          <%= form.submit "Save changes", class: "btn btn-primary", class: "btn btn-primary" %>
-        <% end %>
-      <% end %> 
-
+      <% if staff_signed_in? %>
+        <% if @item.status != "Order has shipped" %> 
+          <%= form_with url: status_update_path do |form| %>
+            <%= form.hidden_field :id, :value => @item.id %>
+            <%= form.select :status, @item.status === "Payment is pending" ? [["Confirm Payment", "Shipping soon"], ["Ship order", "Order has shipped"]] : [["Ship order", "Order has shipped"]]  %>
+            <%= form.submit "Save changes", class: "btn btn-primary", class: "btn btn-primary" %>
+          <% end %>
+        <% end %> 
+      <% end %>
     </div>
 </div>
 <div>

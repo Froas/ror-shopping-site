@@ -1,30 +1,34 @@
 
 <div class="cart-items-container">
 <h1>Order Detail</h1>
+
+  <% @sum = @items.reduce (0) {|sum, num| sum + (OrderItem.find(num).ordered_product.price) } %>
+  <div>
+    Order number: <%= OrderItem.find(@items.first).order_line_item_id  %>
+  <div>
+  <div>
+    Order Created <%= OrderItem.find(@items.first).created_at %>
+  </div>
+  <div>
+    Total price <%= @sum %>$
+  </div>
   <% @items.each do |item| %>
   <% @item = OrderItem.find(item)%>
-  <div>
-    Order number: <%= @item.id %>
-  <div>
-  <div>
-    Oder Created <%= @item.created_at %>
-  </div>
-  <div>
-    Total price <%= @item.ordered_product.price %>$
-  </div>
+
   <div class="order-item-container">
     <%= image_tag @item.ordered_product.image.attached? ? @item.ordered_product.image : 'default-imag.jpg', class: "cart-item-img"  %>
     <div class="cart-item-info">
       <p class="cart-item-title">Product name: <%= @item.ordered_product.title %></p>
       <p class="cart-item-title">Status: <%= @item.status %> </p>
-      <% if @item.status != "Order has shipped" %> 
-        <%= form_with url: status_update_path do |form| %>
-          <%= form.hidden_field :id, :value => @item.id %>
-          <%= form.select :status, @item.status === "Payment is pending" ? [["Confirm Payment", "Shipping soon"], ["Ship order", "Order has shipped"]] : [["Ship order", "Order has shipped"]]  %>
-          <%= form.submit "Save changes", class: "btn btn-primary", class: "btn btn-primary" %>
-        <% end %>
-      <% end %> 
-
+      <% if staff_signed_in? %>
+        <% if @item.status != "Order has shipped" %> 
+          <%= form_with url: status_update_path do |form| %>
+            <%= form.hidden_field :id, :value => @item.id %>
+            <%= form.select :status, @item.status === "Payment is pending" ? [["Confirm Payment", "Shipping soon"], ["Ship order", "Order has shipped"]] : [["Ship order", "Order has shipped"]]  %>
+            <%= form.submit "Save changes", class: "btn btn-primary", class: "btn btn-primary" %>
+          <% end %>
+        <% end %> 
+      <% end %>
     </div>
 </div>
 <% end %>
