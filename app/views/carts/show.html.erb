@@ -19,7 +19,7 @@
     <%= link_to "✕", delete_path_url(item), method: :delete, remote: true, class: "cart-item-delete-button"%>
   <% end %>
   <% if current_cart.cart_items.size > 0 %>
-    <%= link_to "Buy All Items", order_checkout_path, class: "btn btn-primary" %>
+    <%= link_to "Buy All Items", order_checkout_path, class: "btn btn-primary", data: { controller:  "confirmation", action: "submit->confirmation#confirm" } %>
   <% end %>
 </div>
 

@@ -19,6 +19,7 @@
     <%= image_tag @item.ordered_product.image.attached? ? @item.ordered_product.image : 'default-imag.jpg', class: "cart-item-img"  %>
     <div class="cart-item-info">
       <p class="cart-item-title">Product name: <%= @item.ordered_product.title %></p>
+      <p class="cart-item-title">Price: <%= @item.ordered_product.price %></p>
       <p class="cart-item-title">Status: <%= @item.status %> </p>
       <% if staff_signed_in? %>
         <% if @item.status != "Order has shipped" %> 

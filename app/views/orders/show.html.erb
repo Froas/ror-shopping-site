@@ -3,22 +3,24 @@
     <p class="order-item-quantity"><%= "You have #{current_order.order_items.size} orders "%></p>
   <% elsif staff_signed_in? %>
     <p class="order-item-quantity"><%= " #{@user.name} has #{@order_items.size} orders "%></p>
+    
   <% end %>
   <% @order_items.each do |items| %> 
     <% @line_items = OrderItem.select{|a| a.order_line_item_id == items.id}  %>
     <% if @line_items.size > 1%>
     <div class="orders-item-container">
+    <p>Order number: <%= (@line_items.first.order_line_item_id)%> <p>
+      <%= link_to "Detail about Order", details_path(user: @user, items: @line_items), class: "orders-detail-button"%>
+
      <% @line_items.each do |item| %>    
       <div class="order-item-container">
         <%= image_tag item.ordered_product.image.attached? ? item.ordered_product.image : 'default-imag.jpg', class: "cart-item-img"  %> 
         <div class="cart-item-info">
-          <p>Order number: <%= (@line_items.first.order_line_item_id)%> <p>
           <p class="cart-item-title"><%= item.ordered_product.title %></p>
           <p class="cart-item-title"><%= item.ordered_product.price %> $</p>
         </div>
       </div>
       <% end %>
-      <%= link_to "Detail about Order", details_path(user: @user, items: @line_items), class: "orders-detail-button"%>
     </div>
     <% else %>
       <% @item = @line_items.first %>
